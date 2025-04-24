@@ -1,1 +1,11 @@
 files/
+
+# Bytecode and cache
+_pycache_/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/

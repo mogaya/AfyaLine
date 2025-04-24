@@ -1,4 +1,5 @@
 files/
+db.sqlite3
 
 # Bytecode and cache
 _pycache_/

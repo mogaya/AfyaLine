@@ -26,7 +26,7 @@ const Programs = () => {
         <Heading size={"lg"}>Program List</Heading>
         <Button
           as={Link}
-          to={"/program/add"}
+          to={"/programs/register"}
           leftIcon={<ClipboardPlus size={18} />}
           colorScheme="blue"
         >

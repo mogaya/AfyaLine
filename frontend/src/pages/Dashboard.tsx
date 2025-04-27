@@ -38,7 +38,7 @@ const QuickActionMenuItems: QuickActionMenu[] = [
     colorScheme: "blue",
     icon: ClipboardPlus,
     label: "Add Program",
-    url: "/programs/add",
+    url: "/programs/register",
   },
   {
     colorScheme: "purple",
@@ -50,7 +50,7 @@ const QuickActionMenuItems: QuickActionMenu[] = [
     colorScheme: "green",
     icon: UserRoundPlus,
     label: "Add Client",
-    url: "/clients/add",
+    url: "/clients/register",
   },
 
   {
@@ -64,6 +64,7 @@ const QuickActionMenuItems: QuickActionMenu[] = [
 const Dashboard = () => {
   const { clients, loading } = useClients();
   const { programs, progLoading } = UsePrograms();
+
   return (
     <>
       <Box>
@@ -77,14 +78,14 @@ const Dashboard = () => {
             icon={Notebook}
             iconColor="#007BFF"
             title="Total Programs"
-            value={5}
+            value={programs.length}
           ></StatCard>
           <StatCard
             bgColor="#E6F0FF"
             icon={Users}
             iconColor="#007BFF"
             title="Total Clients"
-            value={5}
+            value={clients.length}
           ></StatCard>
         </SimpleGrid>
         <Grid templateColumns={{ base: "1fr", lg: "1fr 300px" }} gap={6}>

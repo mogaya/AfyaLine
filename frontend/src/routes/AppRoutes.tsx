@@ -5,6 +5,7 @@ import Clients from "../pages/Clients";
 import ClientDetails from "../pages/ClientDetails";
 import Programs from "../pages/Programs";
 import ProgramDetails from "../pages/ProgramDetails";
+import ClientRegistration from "../pages/ClientRegistration";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "/clients", element: <Clients /> },
       { path: "/clients/:id", element: <ClientDetails /> },
+      { path: "/clients/register", element: <ClientRegistration /> },
       { path: "/programs", element: <Programs /> },
       { path: "/programs/:id", element: <ProgramDetails /> },
     ],

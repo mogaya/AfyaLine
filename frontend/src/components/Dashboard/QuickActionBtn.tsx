@@ -33,7 +33,6 @@ const QuickActionBtn = ({ items }: QuickActionBtnProps) => {
           </Flex>
         </Button>
       ))}
-      ;
     </>
   );
 };

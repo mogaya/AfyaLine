@@ -8,7 +8,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { create } from "framer-motion/client";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createProgram } from "../../services/programs";

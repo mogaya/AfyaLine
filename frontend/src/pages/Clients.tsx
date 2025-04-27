@@ -25,7 +25,7 @@ const Clients = () => {
         <Heading size={"lg"}>Client List</Heading>
         <Button
           as={Link}
-          to={"/client/add"}
+          to={"/clients/register"}
           leftIcon={<UserRoundPlus size={18} />}
           colorScheme="green"
         >

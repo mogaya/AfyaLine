@@ -128,3 +128,7 @@ AfyaLine is a Health Information Management System for managing clients and prog
 - **`useState`** for holding API data, loading, and error states
 - **`useEffect`** for fetching data on mount or based on dependencies
 - **Axios** used for making HTTP requests
+
+## ScreenShots
+
+**Screenshots**: Access Screenshots at [https://docs.google.com/presentation/d/1fuiFFJKHxGI64KEgtsx_vFSK8IK4WBCqd2AGyPahV-o/edit?usp=sharing](https://docs.google.com/presentation/d/1fuiFFJKHxGI64KEgtsx_vFSK8IK4WBCqd2AGyPahV-o/edit?usp=sharing)

@@ -14,9 +14,52 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import StatCard from "../components/Dashboard/StatCard";
-import { Notebook, Users } from "lucide-react";
+import {
+  ClipboardPlus,
+  LucideIcon,
+  Notebook,
+  UserRoundPlus,
+  Users,
+  UsersRound,
+} from "lucide-react";
 import { useClients } from "../hooks/UseClients";
 import { UsePrograms } from "../hooks/UsePrograms";
+import QuickActionBtn from "../components/Dashboard/QuickActionBtn";
+
+export interface QuickActionMenu {
+  label: string;
+  icon: LucideIcon;
+  url: string;
+  colorScheme: string;
+}
+
+const QuickActionMenuItems: QuickActionMenu[] = [
+  {
+    colorScheme: "blue",
+    icon: ClipboardPlus,
+    label: "Add Program",
+    url: "/programs/add",
+  },
+  {
+    colorScheme: "purple",
+    icon: Notebook,
+    label: "View All Programs",
+    url: "/programs",
+  },
+  {
+    colorScheme: "green",
+    icon: UserRoundPlus,
+    label: "Add Client",
+    url: "/clients/add",
+  },
+
+  {
+    colorScheme: "orange",
+    icon: UsersRound,
+    label: "View All Clients",
+    url: "/clients",
+  },
+];
 
 const Dashboard = () => {
   const { clients, loading } = useClients();
@@ -117,6 +160,17 @@ const Dashboard = () => {
                   </Table>
                 )}
               </Box>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box bg={"white"} borderRadius={"lg"} boxShadow={"sm"} p={5} mb={6}>
+              <Heading size={"md"} mb={4}>
+                {" "}
+                Quick Actions
+              </Heading>
+              <SimpleGrid columns={1} spacing={3}>
+                <QuickActionBtn items={QuickActionMenuItems} />
+              </SimpleGrid>
             </Box>
           </GridItem>
         </Grid>

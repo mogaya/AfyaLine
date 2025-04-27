@@ -6,6 +6,7 @@ import ClientDetails from "../pages/ClientDetails";
 import Programs from "../pages/Programs";
 import ProgramDetails from "../pages/ProgramDetails";
 import ClientRegistration from "../pages/ClientRegistration";
+import ProgramRegistration from "../pages/ProgramRegistration";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/clients/register", element: <ClientRegistration /> },
       { path: "/programs", element: <Programs /> },
       { path: "/programs/:id", element: <ProgramDetails /> },
+      { path: "/programs/register", element: <ProgramRegistration /> },
     ],
   },
 ]);

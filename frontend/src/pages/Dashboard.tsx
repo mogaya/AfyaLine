@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Grid,
   GridItem,
@@ -15,9 +16,11 @@ import {
 import StatCard from "../components/Dashboard/StatCard";
 import { Notebook, Users } from "lucide-react";
 import { useClients } from "../hooks/UseClients";
+import { UsePrograms } from "../hooks/UsePrograms";
 
 const Dashboard = () => {
   const { clients, loading } = useClients();
+  const { programs, progLoading } = UsePrograms();
   return (
     <>
       <Box>
@@ -49,19 +52,19 @@ const Dashboard = () => {
                 Recent Clients
               </Heading>
               <Box overflowX={"auto"}>
-                <Table variant={"simple"}>
-                  <Thead>
-                    <Tr>
-                      <Th>Full Name</Th>
-                      <Th>Email</Th>
-                      <Th>Gender</Th>
-                    </Tr>
-                  </Thead>
-                  {loading ? (
-                    <Box textAlign="center" mt={10} mx={"auto"} w={"100%"}>
-                      <Spinner size="lg" />
-                    </Box>
-                  ) : (
+                {loading ? (
+                  <Box textAlign="center" mt={10} mx={"auto"} w={"100%"}>
+                    <Spinner size="lg" />
+                  </Box>
+                ) : (
+                  <Table variant={"simple"}>
+                    <Thead>
+                      <Tr>
+                        <Th>Full Name</Th>
+                        <Th>Email</Th>
+                        <Th>Gender</Th>
+                      </Tr>
+                    </Thead>
                     <Tbody>
                       {clients.map((client) => (
                         <Tr key={client.id}>
@@ -71,17 +74,48 @@ const Dashboard = () => {
                         </Tr>
                       ))}
                     </Tbody>
-                  )}
-                  <Tbody>
-                    {clients.map((client) => (
-                      <Tr key={client.id}>
-                        <Td>{client.full_name}</Td>
-                        <Td>{client.email}</Td>
-                        <Td>{client.gender}</Td>
+                  </Table>
+                )}
+              </Box>
+            </Box>
+
+            {/* Program Statistics */}
+            <Box bg={"white"} borderRadius={"lg"} boxShadow={"sm"} p={5}>
+              <Heading size={"md"} mb={4}>
+                {" "}
+                Programs
+              </Heading>
+              <Box overflowX={"auto"}>
+                {progLoading ? (
+                  <Box textAlign="center" mt={10} mx={"auto"} w={"100%"}>
+                    <Spinner size="lg" />
+                  </Box>
+                ) : (
+                  <Table variant={"simple"}>
+                    <Thead>
+                      <Tr>
+                        <Th>Program Name</Th>
+                        <Th>Start Date</Th>
+                        <Th>Status</Th>
                       </Tr>
-                    ))}
-                  </Tbody>
-                </Table>
+                    </Thead>
+                    <Tbody>
+                      {programs.map((program) => (
+                        <Tr key={program.id}>
+                          <Td>{program.name}</Td>
+                          <Td>{program.start_date}</Td>
+                          <Td>
+                            <Badge
+                              colorScheme={program.is_active ? "green" : "red"}
+                            >
+                              {program.is_active ? "Active" : "Inactive"}
+                            </Badge>
+                          </Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                )}
               </Box>
             </Box>
           </GridItem>
